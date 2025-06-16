@@ -1,12 +1,43 @@
-# React + Vite
+# 🏏 SportZilla - Your Ultimate Sports Equipment Store 🥊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to **SportZilla**, a modern full-stack sports equipment e-commerce platform built with React, Tailwind, and Express. Discover top-rated sports gear with seamless user experience and stylish UI for all themes.
 
-Currently, two official plugins are available:
+🔗 **Live Website**: [https://sportzilla-store.web.app](https://sportzilla-store.web.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🔐 User Authentication with Firebase (Email & Google Login)
+- 🛒 Add, Update & Delete Sports Equipments
+- 🌟 Highlighted Highest Rated Products
+- 🌓 Dark & Light Theme Support
+- 🎨 Modern UI with Tailwind CSS + DaisyUI
+- 🔥 Toast Notifications with `react-hot-toast`
+- 🧠 Form Handling via `react-hook-form`
+- 📦 Backend with Express.js & MongoDB
+
+---
+
+## 🛠️ Tech Stack
+
+### 🔹 Client (Frontend)
+- **React 19**
+- **React Router DOM 7**
+- **Tailwind CSS 4**
+- **DaisyUI**
+- **Firebase Authentication**
+- **React Hook Form**
+- **React Icons & Lottie**
+- **React Simple Typewriter**
+- **React Hot Toast**
+
+### 🔸 Server (Backend)
+- **Express.js**
+- **MongoDB**
+- **CORS**
+- **dotenv**
+- **Hosted on Vercel**
+
+---
+
