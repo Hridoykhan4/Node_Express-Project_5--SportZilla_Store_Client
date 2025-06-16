@@ -12,7 +12,7 @@ const MyEquipments = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:5000/myEquipments/${user.email}`)
+      fetch(`https://sports-zilla-server.vercel.app/myEquipments/${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           if (data) {
@@ -24,7 +24,7 @@ const MyEquipments = () => {
 
   const handleDelete = (id) => {
     showConfirmToast(async () => {
-      const res = await fetch(`http://localhost:5000/myEquipments/${id}`, {
+      const res = await fetch(`https://sports-zilla-server.vercel.app/myEquipments/${id}`, {
         method: "DELETE",
       });
       const result = await res.json();

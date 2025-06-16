@@ -4,4 +4,9 @@
   themes: light --default, dark --prefersdark;
 }
 
+html{
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+}
+
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));

@@ -27,7 +27,7 @@ const AddEquipment = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:5000/equipment`, {
+    fetch(`https://sports-zilla-server.vercel.app/equipment`, {
       method: "POST",
       headers: {
         "content-type": "application/json",

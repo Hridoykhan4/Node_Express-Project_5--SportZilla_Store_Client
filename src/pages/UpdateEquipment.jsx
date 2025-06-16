@@ -22,7 +22,7 @@ const UpdateEquipment = () => {
   });
 
   const onSubmit = (data) => {
-    fetch(`http://localhost:5000/equipment/${equipment._id}`, {
+    fetch(`https://sports-zilla-server.vercel.app/equipment/${equipment._id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

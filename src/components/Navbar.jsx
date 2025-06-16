@@ -30,16 +30,32 @@ const Navbar = () => {
           All Equipments
         </NavLink>
       </li>
-      <li>
-        <NavLink className={navLinksStyle} to="/addEquipment">
-          Add Equipment
-        </NavLink>
-      </li>
-      <li>
-        <NavLink className={navLinksStyle} to="/myEquipments">
-          My Equipments
-        </NavLink>
-      </li>
+
+      {user ? (
+        <>
+          <li>
+            <NavLink className={navLinksStyle} to="/addEquipment">
+              Add Equipment
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={navLinksStyle} to="/myEquipments">
+              My Equipments
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className={navLinksStyle} to="/myCart">
+              Cart Items
+            </NavLink>
+          </li>
+        </>
+      ) : (
+         <li>
+            <NavLink className={navLinksStyle} to="/register">
+              Register Now
+            </NavLink>
+          </li>
+      )}
     </>
   );
 

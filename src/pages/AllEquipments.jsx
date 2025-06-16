@@ -9,7 +9,7 @@ const AllEquipments = () => {
   const [userInput, setUserInput] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:5000/equipments?searchBy=${userInput}`)
+    fetch(`https://sports-zilla-server.vercel.app/equipments?searchBy=${userInput}`)
       .then((res) => res.json())
       .then((data) => {
         setEquipments(data);

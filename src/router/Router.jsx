@@ -8,6 +8,8 @@ import EquipmentDetails from "../pages/EquipmentDetails";
 import MyEquipments from "../pages/MyEquipments";
 import Register from "../pages/Register";
 import UpdateEquipment from "../pages/UpdateEquipment";
+import MyCart from "../pages/MyCart";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -17,7 +19,7 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch(`http://localhost:5000/equipmentsRated`),
+        loader: () => fetch(`https://sports-zilla-server.vercel.app/equipmentsRated`),
       },
       {
         path: "/login",
@@ -26,21 +28,43 @@ const Router = createBrowserRouter([
       {
         path: "/allEquipments",
         element: <AllEquipments></AllEquipments>,
-        loader: () => fetch(`http://localhost:5000/equipments`),
+        loader: () => fetch(`https://sports-zilla-server.vercel.app/equipments`),
+      },
+      {
+        path: "/myCart",
+        element: (
+          <PrivateRoute>
+            <MyCart></MyCart>
+          </PrivateRoute>
+        ),
+        loader: () => fetch(`https://sports-zilla-server.vercel.app/cartItems`),
       },
       {
         path: "/addEquipment",
-        element: <AddEquipment></AddEquipment>,
+        element: (
+          <PrivateRoute>
+            <AddEquipment></AddEquipment>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/details/:id",
-        element: <EquipmentDetails></EquipmentDetails>,
+        element: (
+          <PrivateRoute>
+            <EquipmentDetails></EquipmentDetails>,
+          </PrivateRoute>
+        ),
+
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipments/${params.id}`),
+          fetch(`https://sports-zilla-server.vercel.app/equipments/${params.id}`),
       },
       {
         path: "/myEquipments",
-        element: <MyEquipments></MyEquipments>,
+        element: (
+          <PrivateRoute>
+            <MyEquipments></MyEquipments>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/register",
@@ -48,9 +72,13 @@ const Router = createBrowserRouter([
       },
       {
         path: "/updateEquipment/:id",
-        element: <UpdateEquipment></UpdateEquipment>,
+        element: (
+          <PrivateRoute>
+            <UpdateEquipment></UpdateEquipment>
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/equipments/${params.id}`),
+          fetch(`https://sports-zilla-server.vercel.app/equipments/${params.id}`),
       },
     ],
   },
