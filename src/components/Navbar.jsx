@@ -3,6 +3,7 @@ import logoImg from "../assets/logoPP.jpg";
 import { useEffect, useState } from "react";
 import { FiMenu } from "react-icons/fi";
 import useAuthValue from "../hooks/useAuthValue";
+import { IoPersonAdd } from "react-icons/io5";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
@@ -78,16 +79,18 @@ const Navbar = () => {
   const Avatar = (
     <details className="dropdown dropdown-end">
       <summary className="btn btn-ghost p-0 hover:scale-105 transition-transform duration-200">
-        {user && (
+        {user && user?.photoURL ? (
           <img
             src={user?.photoURL}
             className="w-10 h-10 rounded-full object-cover border border-gray-300 shadow-sm"
             alt="user avatar"
           />
+        ) : (
+          <IoPersonAdd className="text-2xl text-green-600" />
         )}
       </summary>
 
-      <ul className="menu dropdown-content dark:text-white z-[1] p-3 mt-3 shadow-lg rounded-xl w-64 bg-base-100 text-sm space-y-2">
+      <ul className="menu dropdown-content left-0 lg:right-0 lg:left-auto dark:text-white z-[1] p-3 mt-3 shadow-lg rounded-xl w-64 bg-base-100 text-sm space-y-2">
         <li className="text-gray-600 dark:text-white font-medium">
           ✉️ Email:
           <span className="text-gray-800  dark:text-white font-semibold break-words">

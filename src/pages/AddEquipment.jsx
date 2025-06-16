@@ -39,8 +39,7 @@ const AddEquipment = () => {
       }),
     })
       .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         toast.success("🔥 Equipment added successfully!", {
           position: "top-center",
           style: {
@@ -79,6 +78,8 @@ const AddEquipment = () => {
         </span>
       </h2>
 
+
+     
       <form
         onSubmit={handleSubmit}
         className="grid grid-cols-1 md:grid-cols-2 gap-6"

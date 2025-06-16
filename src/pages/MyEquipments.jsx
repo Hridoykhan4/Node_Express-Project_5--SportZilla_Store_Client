@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 import useAuthValue from "../hooks/useAuthValue";
 import { Link } from "react-router-dom";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import useConfirmDelete from "../hooks/useConfirmDelete";
+import toast from "react-hot-toast";
 
 const MyEquipments = () => {
   const { user } = useAuthValue();
   const [equipments, setEquipments] = useState([]);
+  const showConfirmToast = useConfirmDelete();
 
   useEffect(() => {
     if (user?.email) {
@@ -19,18 +22,33 @@ const MyEquipments = () => {
     }
   }, [user?.email]);
 
-  const handleDelete = async (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete?");
-    if (confirmDelete) {
-      const res = await fetch(`http://localhost:5000/equipments/${id}`, {
+  const handleDelete = (id) => {
+    showConfirmToast(async () => {
+      const res = await fetch(`http://localhost:5000/myEquipments/${id}`, {
         method: "DELETE",
       });
       const result = await res.json();
+
       if (result?.deletedCount > 0) {
         setEquipments(equipments.filter((item) => item._id !== id));
-        alert("Item deleted successfully!");
+
+        toast.success("🔥 Item deleted successfully!", {
+          position: "bottom-right",
+          duration: 4000,
+          style: {
+            background: "#dc2626",
+            color: "#fff",
+            fontWeight: "bold",
+            border: "2px solid #b91c1c",
+            padding: "12px 16px",
+            fontSize: "16px",
+            borderRadius: "8px",
+            boxShadow: "0 0 15px rgba(255, 0, 0, 0.5)",
+          },
+          icon: "🔥",
+        });
       }
-    }
+    });
   };
 
   return (
